@@ -53,7 +53,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Unleashing Generalization of End-to-End Autonomous Driving with Controllable Long Video Generation</h1>
-            <div class="is-size-5 publication-authors">
+            <!-- <div class="is-size-5 publication-authors"> -->
               <!-- Paper authors -->
               <!-- <span class="author-block">
                 <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
@@ -62,7 +62,7 @@
                   <span class="author-block">
                     <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
                   </span> -->
-                  </div>
+                  <!-- </div> -->
 
                   <div class="is-size-5 publication-authors">
                     <!-- <span class="author-block">Institution Name<br>Conferance name and year</span> -->
@@ -70,8 +70,8 @@
                     <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                   </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
+                  <!-- <div class="column has-text-centered">
+                    <div class="publication-links"> -->
                          <!-- Arxiv PDF link -->
                       <!-- <span class="link-block">
                         <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
@@ -115,8 +115,8 @@
                   <span>arXiv</span>
                 </a>
               </span> -->
-            </div>
-          </div>
+            <!-- </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -127,14 +127,13 @@
 <!-- Teaser video-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+    <!-- <div class="hero-body"> -->
+    <div class="item">
+      <img src="static/images/teaser.png" alt="MY ALT TEXT" />
+      <h2 style="font-size: 18px" class="subtitle has-text-centered">
+        <b>Overview of our method.
+          <!-- <br> -->
+        </b> We show that <b>(a)</b> our <i>Delphi</i> can generate up to 40 frames consecutive videos while <b>(b)</b> existing best only generate 8 frames. <b>(c)</b> With the failure-cased driven framework equipped with <i>Delphi</i>, <b>(d)</b> we can significantly boost the end-to-end model performance with much smaller cost.
       </h2>
     </div>
   </div>
@@ -149,7 +148,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Using generative models to synthesize new data has become a de-facto standard in autonomous driving to address the data scarcity issue. Though existing approaches are able to boost perception models, we discover that these approaches fail to improve the performance of planning of end-to-end autonomous driving models as the generated videos are usually less than 8 frames and the spatial and temporal inconsistencies are not negligible. To this end, we propose <i>Delphi</i>, a novel diffusion-based long video generation method with a shared noise modeling mechanism across the multi-views to increase spatial consistency, and a feature-aligned module to achieves both precise controllability and temporal consistency. Our method can generate up to 40 frames of video without loss of consistency which is about 5 times longer compared with state-of-the-art methods. Instead of randomly generating new data, we further design a sampling policy to let <i>Delphi</i> generate new data that are similar to those failure cases to improve the sample efficiency. This is achieved by building a failure-case driven framework with the help of pre-trained visual language models. Our extensive experiment demonstrates that our <i>Delphi</i> generates a higher quality of long videos surpassing previous state-of-the-art methods. Consequentially, with only generating 4% of the training dataset size, our framework is able to go beyond perception and prediction task, for the first time to the best of our knowledge, boost the planning performance of the end-to-end autonomous driving model by a margin of 25%.
           </p>
         </div>
       </div>
@@ -166,32 +165,24 @@
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/delphi-framework-small.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          First image description.
+          Overview of <i>Delphi</i>.
+          <!-- <b>(a) Architecture of <i>Delphi</i></b>.  -->
+          <!-- It takes multi-view videos z and the corresponding BEV (Bird's Eye View) layout sequences as input. Each video consists of N frames and V views. The BEV layout sequences are first projected into camera space according to camera parameters, resulting in camera layouts that include both foreground and background layouts. 
+          Specifically, the foreground layout includes the bounding box's corner coordinates, heading, instance id, and dense caption, while the background one includes different colored lines to represent road trends. 
+          The layout embeddings, processed by the encoder, are injected into the U-Net through cross-attention to achieve fine-grained layout control in the generation process. Additionally, we leverage VLM to extract dense captions for the input scenes,  which are encoded by Long-CLIP to obtain text embeddings, which are then injected into the U-Net via text cross-attention to achieve text-based control. 
+          We further design two key modules,  
+          <b>(b) Noise Reinitialization Module</b> that encompass a share noise across different views  and  <b>(c) Feature-aligned Temporal Consistency Module</b> to ensure spatial and temporal consistency accordingly. -->
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/failure-case-driven framwork.jpeg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Second image description.
+          Overview of Failure-case Driven Framework.
         </h2>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
   </div>
 </div>
 </div>
@@ -202,23 +193,21 @@
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
       <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
           <div class="publication-video">
-            <!-- Youtube embed code here -->
             <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End youtube video -->
 
 
@@ -226,7 +215,103 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3">Long video generation on nuScenes dataset</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Precise controllability</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="item">
+            <!-- Your image here -->
+            <img src="static/images/results/visual conparison of local region.png" alt="MY ALT TEXT"/>
+            <h2 class="subtitle has-text-centered">
+              Visual comparison of local region generated by different generative models. Our method maintains consistent spatial and temporal location and appearance where the previous methods fail.
+            </h2>
+          </div>
+
+          <div class="item">
+            <!-- Your image here -->
+            <img src="static/images/results/visual precise control.jpeg" alt="MY ALT TEXT"/>
+            <h2 class="subtitle has-text-centered">
+              Visualization of <b>(a)</b> instance-level editing, including appearance attributes of all vehicles, and  <b>(b)</b> scene-level editing, including weather and time.
+            </h2>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Our failure-case driven framework boosts the end-to-end planning model</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="item">
+            <!-- Your image here -->
+            <img src="static/images/downstream/Tab2.jpeg" alt="MY ALT TEXT"/>
+            <h2 class="subtitle has-text-centered">
+              Performance comparison of the end-to-end models fine-tuned from the UniAD open source model by applying different data sampling strategies, numbers of data cases, data engines, and data sources in the failure-case driven framework.The baseline performance is presented in the first row of the table.
+            </h2>
+          </div>
+          
+          <div class="item">
+            <!-- Your image here -->
+            <img src="static/images/downstream/uniad generalization comparison.png" alt="MY ALT TEXT"/>
+            <h2 class="subtitle has-text-centered">
+              Visualization of four examples before and after. <b>(a)</b> Here, we show four hard examples from the validation set, ''large objects in the front'' and ''unprotected left turn at intersection''. <b>(b)</b> Our framework is able to fix these four examples without using these data during training. 
+            </h2>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Long video generation on private dataset</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
@@ -261,7 +346,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -271,21 +356,21 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+  <!-- <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>BibTex Code Here</code></pre>
     </div>
-</section>
+</section> -->
 <!--End BibTex citation -->
 
 
-  <footer class="footer">
+  <!-- <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
@@ -301,7 +386,7 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
 
 <!-- Statcounter tracking code -->
   
